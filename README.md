@@ -8,6 +8,18 @@ Something here
 PASSED
 ```
 
+Set pytest log level
+```
+$ pytest -v --log_cli_level INFO
+```
+We can also set `log_cli_format`, `log_cli_date_format`, see `pytest.ini`. The `log_cli = 1` Enables live logging to the console/terminal during test runs
+```
+$ pytest test_transformers.py
+2025-05-22 10:42:42 [    INFO] out: [0.1  1.1  1.21] (test_transformers.py:47)
+2025-05-22 10:42:42 [    INFO] expected: [0.1  1.1  1.21] (test_transformers.py:49)
+PASSED    
+```
+
 Run tests on demand
 ```
 $ pytest -v -s tests
@@ -36,6 +48,8 @@ PASSED
 $ pytest -v -s -m "regression"
 tests/test_assertions.py::test_ArrayAssert PASSED
 tests/test_assertions.py::test_DictAssert PASSED
+
+$ pytest -v -s -m "not regression"
 ```
 
 # Test Coverage
